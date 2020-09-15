@@ -1,0 +1,8 @@
+{
+  "author": "Badr Mohamed",
+  "description": "BADR Ecommerce webstore",
+  "private": true,
+  "dependencies": {
+    "gulp": "^4.0.2"
+  }
+}
