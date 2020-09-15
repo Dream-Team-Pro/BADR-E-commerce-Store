@@ -3,6 +3,7 @@
   "description": "BADR Ecommerce webstore",
   "private": true,
   "dependencies": {
-    "gulp": "^4.0.2"
+    "gulp": "^4.0.2",
+    "laravel-elixir": "*"
   }
 }
