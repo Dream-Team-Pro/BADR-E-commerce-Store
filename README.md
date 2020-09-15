@@ -1,1 +1,2 @@
-# BADR-E-commerce-Store
+# Install laravel/installer
+# Install gulp bower --global
