@@ -1,24 +1,25 @@
 {
-  "author": "Badr Mohamed",
-  "description": "BADR Ecommerce webstore",
+  "author": "Terry Osayawe",
+  "description": "ACME Ecommerce webstore",
   "private": true,
-
   "scripts": {
-    "dev": "npm run development",
-    "development": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
+    "dev": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
+    "watch": "cross-env NODE_ENV=development node_modules/webpack/bin/webpack.js --watch --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
     "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --config=node_modules/laravel-mix/setup/webpack.config.js",
     "prod": "npm run production",
     "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
-},
-
+  },
+ 
   "dependencies": {
-    "cross-env": "^7.0.2",
-    "foundation-sites": "^6.6.3",
-    "jquery": "^3.5.1",
-    "laravel-mix": "^5.0.6",
-    "motion-ui": "^2.0.3",
-    "slick-carousel": "^1.8.1",
-    "vue": "^2.6.12"
+    "axios": "^0.17.1",
+    "foundation-sites": "^6.5.0-rc.3",
+    "jquery": "^3.2",
+    "laravel-mix": "^2.1.14",
+    "motion-ui": "^1.2.2",
+    "slick-carousel": "^1.6.0",
+    "vue": "^2.5.17"
+  },
+  "devDependencies": {
+    "cross-env": "^5.2.1"
   }
 }

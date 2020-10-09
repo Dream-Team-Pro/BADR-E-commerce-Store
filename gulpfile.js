@@ -12,7 +12,7 @@ elixir(function(mix) {
         [
             'css/app.css',
             'bower/vendor/slick-carousel/slick/slick.css'
-        ], 'public/css/all.css', // output file
+        ],  'public/css/all.css', // output file
         'resources/assets');
 
         var bowerPath = 'bower/vendor';
