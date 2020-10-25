@@ -59,7 +59,7 @@ class NewCommand extends Command
 | |     __ _ _ __ __ ___   _____| |
 | |    / _` | \'__/ _` \ \ / / _ \ |
 | |___| (_| | | | (_| |\ V /  __/ |
-|______\__,_|_|  \__,_| \_/ \___|_|'.PHP_EOL.PHP_EOL);
+|______\__,_|_|  \__,_| \_/ \___|_|</>'.PHP_EOL.PHP_EOL);
         }
 
         sleep(1);
@@ -72,6 +72,10 @@ class NewCommand extends Command
 
         if (! $input->getOption('force')) {
             $this->verifyApplicationDoesntExist($directory);
+        }
+
+        if ($input->getOption('force') && $directory === '.') {
+            throw new RuntimeException('Cannot use --force option when using current directory for installation!');
         }
 
         $composer = $this->findComposer();
@@ -89,7 +93,7 @@ class NewCommand extends Command
         }
 
         if (PHP_OS_FAMILY != 'Windows') {
-            $commands[] = "chmod 644 \"$directory/artisan\"";
+            $commands[] = "chmod 755 \"$directory/artisan\"";
         }
 
         if (($process = $this->runCommands($commands, $input, $output))->isSuccessful()) {
@@ -224,12 +228,20 @@ class NewCommand extends Command
     {
         if ($input->getOption('no-ansi')) {
             $commands = array_map(function ($value) {
+                if (substr($value, 0, 5) === 'chmod') {
+                    return $value;
+                }
+
                 return $value.' --no-ansi';
             }, $commands);
         }
 
         if ($input->getOption('quiet')) {
             $commands = array_map(function ($value) {
+                if (substr($value, 0, 5) === 'chmod') {
+                    return $value;
+                }
+
                 return $value.' --quiet';
             }, $commands);
         }

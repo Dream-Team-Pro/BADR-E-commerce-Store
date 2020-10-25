@@ -5,8 +5,11 @@
 if(!isset($_SESSION)) session_start();
 
 //load environment variable
-require_once __DIR__ . '/../app/config/_env.php';
+require_once __DIR__ . '/../App/config/_env.php';
 
-require_once __DIR__ . '/../app/routing/routes.php';
+// instrantiate database class
+new \App\Classes\Database();
+
+require_once __DIR__ . '/../App/routing/routes.php';
 
 new \App\RouteDispatcher($router);

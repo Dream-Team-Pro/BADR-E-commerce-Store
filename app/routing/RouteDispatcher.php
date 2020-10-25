@@ -14,8 +14,8 @@ class RouteDispatcher
     {
         $this->match = $router->match();
 
-        if($this->$match) {
-            list($controller, $method) = explode('@', $match['target']);
+        if($this->match) {
+            list($controller, $method) = explode('@', $this->match['target']);
             $this->controller = $controller;
             $this->method = $method;
 
@@ -28,7 +28,6 @@ class RouteDispatcher
         } else {
             header($_SERVER['SERVER_PROTOCOL'].'404 Not Found');
             view('errors/404');
-            
         }
 
     }
